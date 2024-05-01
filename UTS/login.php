@@ -10,21 +10,22 @@ if (isset($_COOKIE['remember_me'])) {
     $password = base64_decode($_COOKIE['remember_me_password']); 
   
     if ($username === 'admin' && $password === 'admin') {
-      $_SESSION['username'] = $username;
-      header('Location: form.php');
+      $_SESSION['username']  = $username;
+      header('Location: form.php'); 
       exit;
     }
   }
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];
+    $rememberMe = $_POST['remember_me'];
 
     if ($username === 'admin' && $password === 'admin') {
         $_SESSION['username'] = $username;
         if ($rememberMe) {
             $encodedPassword = base64_encode($password);
-            setcookie('remember_me', $username, time() + (60 * 60 * 24 * 30)); 
-            setcookie('remember_me_password', $encodedPassword, time() + (60 * 60 * 24 * 30));
+            setcookie('remember_me', $username, time() + (86400 * 30)); 
+            setcookie('remember_me_password', $encodedPassword, time() + (86400 * 30));
           }
         header('Location: form.php');
         exit;

@@ -19,11 +19,6 @@ table {
     height: 310px;
 }
 
-h2 {
-    align-content: center;
-    justify-content: center;
-    display: flex;
-}
 #logout {
     border-radius: .25rem;
     border: 1px solid transparent;

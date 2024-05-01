@@ -3,7 +3,7 @@ session_start();
 
 if (!isset($_SESSION['username'])) {
     echo "<script>alert('Login dahulu!')</script>";
-    header('Location: login.php');
+    echo '<script>window.location.href="login.php"</script>';
 }
 
 $username = $_SESSION['username'];
