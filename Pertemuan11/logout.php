@@ -1,6 +1,11 @@
 <?php
-if (session_status() === PHP_SESSION_NONE)
+// Periksa apakah sesi tidak aktif
+if (session_status() == PHP_SESSION_NONE) {
+    // Mulai sesi
     session_start();
-session_destroy();
-
-header('location:index.php');
+    // Hancurkan sesi yang ada
+    session_destroy();
+    // Arahkan pengguna kembali ke halaman utama (index.php)
+    header('location: index.php');
+}
+?>
